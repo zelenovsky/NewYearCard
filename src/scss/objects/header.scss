@@ -1,0 +1,12 @@
+.header {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  background: #36a5ff;
+}
+
+canvas {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,33 @@
+footer.footer
+  .container
+    .footer__content
+      .footer__company.footer__block
+        ul
+          li.title Company
+          each item in ["About Us", "Services", "Work", "Knowledge", "Blog", "Drupal Digest", "Events", "Contacts"]
+            li
+              a(href="#")= item
+      .footer__learn-more.footer__block
+        ul
+          li.title Learn more
+          each item in ["Clutch", "Drupal.org", "Behance"]
+            li
+              a(href="#")= item
+      .footer__connect.footer__block
+        ul
+          li.title Connect
+          each item in ["LinkedIn", "Twitter", "Facebook", "Instagram"]
+            li
+              a(href="#")= item
+      .footer__subscribe.footer__block
+        .subscribe
+          div.title Subscribe
+          div Don't miss our monthly Drupal Digest
+          form
+            input(type="text" placeholder="Your name, please")
+            input(type="submit")
+        .talk-to-adci
+          div.title Talk to ADCI Solutions
+          a(href="#") hello@adcisolutions.com
+        .copyright Copyright &copy; 2007-2017 ADCI Solutions
+

@@ -1,0 +1,63 @@
+.map {
+  color: #858e97;
+  font-size: 16px;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+  }
+
+  &__image img {
+    width: 100%;
+  }
+
+  &__done {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 1.55em;
+    margin-top: 2em;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
+
+  &__projects,
+  &__conferences {
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 1.5em;
+    }
+  }
+
+  &__projects::before,
+  &__conferences::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -2.5em;
+    transform: translateY(-50%);
+    width: 1.9em;
+    height: 1.9em;
+    border-radius: 50%;
+  }
+
+  &__projects::before {
+    background-color: #0f70e7;
+  }
+
+  &__conferences::before {
+    background-color: #222;
+  }
+}

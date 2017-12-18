@@ -1,0 +1,29 @@
+// Поместите параметры в этот файл, чтобы перезаписать параметры по умолчанию и пользовательские параметры.
+{
+	"editor.tabSize": 2,
+	"editor.cursorStyle": "line",
+	"files.associations": {
+		"*.extension": "html"
+	},
+	"editor.fontFamily": "Monaco, 'Courier New', monospace",
+	"editor.fontWeight": "normal",
+	"editor.minimap.enabled": false,
+	"editor.formatOnType": true,
+	"editor.formatOnPaste": true,
+	"editor.overviewRulerBorder": false,
+	"editor.cursorBlinking": "phase",
+	"editor.renderControlCharacters": false,
+	"editor.renderIndentGuides": false,
+	"editor.renderLineHighlight": "line",
+	"editor.dragAndDrop": true,
+	"workbench.colorTheme": "Tomorrow Night",
+	"workbench.welcome.enabled": false,
+	"window.zoomLevel": 0,
+	"editor.insertSpaces": true,
+	"editor.renderWhitespace": "boundary",
+	"editor.fontSize": 14,
+	"editor.multiCursorModifier": "ctrlCmd",
+	"workbench.iconTheme": "material-icon-theme",
+	"color-highlight.markerType": "underline",
+	"editor.colorDecorators": false
+}

@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Gotham Rounded Book";
+  src: url("./gotham-rounded/gotham-rounded-book.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Gotham Rounded Bold";
+  src: url("./gotham-rounded/gotham-rounded-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Blacktear Script";
+  src: url("./blacktear-script/blacktear.woff2") format("woff2"),
+       url("./blacktear-script/blacktear.woff") format("woff"),
+       url("./blacktear-script/blacktear.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Sweet Mia";
+  src: url("./sweet-mia/sweet-mia.woff2") format("woff2"),
+       url("./sweet-mia/sweet-mia.woff") format("woff"),
+       url("./sweet-mia/sweet-mia.ttf") format("ttf");
+}

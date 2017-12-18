@@ -1,0 +1,57 @@
+.footer {
+  background-color: #1C1C1C;
+  color: #858e97;
+  font-size: 16px;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 527px;
+    padding-top: 5em;
+    padding-bottom: 2em;
+  }
+
+  &__block {
+    flex: 1;
+    padding-right: 20px;
+    margin-top: 2em;
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+
+  &__subscribe {
+    flex-grow: 1.12;
+  }
+
+  .title {
+    color: $c-white;
+    font-weight: 700;
+    margin-bottom: 1.5em;
+  }
+
+  li {
+    margin-bottom: 1em;
+  }
+
+  a {
+    color: #858e97;
+    text-decoration: none;
+  }
+
+  .talk-to-adci,
+  .copyright {
+    margin-top: 3em;
+  }
+
+  @import "../components/subscribe";
+}

@@ -1,0 +1,10 @@
+section.achievements
+  h3.achievements__title What our 2017 was like
+  - const achievements = [{image: "pizza", text: "pizzas eaten", number: "478"}, {image: "cup-of-coffee", text: "cups of coffee turned into code", number: "571"}, {image: "article", text: "articles written and shared", number: "33"}, {image: "notebook", text: "projects launched", number: "54"}, {image: "session", text: "sessions at educational events delivered", number: "38"}]
+  each achievement in achievements
+    .achievements__achievement
+      .achievements__image
+        img(src="../img/" + achievement.image + ".png")
+      .achievements__content
+        .achievements__number= achievement.number
+        .achievements__description= achievement.text

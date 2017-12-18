@@ -1,0 +1,31 @@
+.adci {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Gotham Rounded Bold";
+  text-align: center;
+  color: #222;
+  font-size: 16px;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
+  }
+
+  &__content {
+    padding: 13em 0 7em;
+  }
+
+  &__text {
+    font-size: 5em;
+    margin-top: 0.5em;
+  }
+}

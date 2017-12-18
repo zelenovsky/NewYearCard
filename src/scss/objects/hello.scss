@@ -1,0 +1,33 @@
+.hello {
+  font-size: 16px;
+  color: #858e97;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+  }
+
+  &__content {
+    padding: 11em 0 3em;
+  }
+
+  &__title {
+    font-family: "Gotham Rounded Bold";
+    color: #0f70e7;
+    font-size: 5em;
+    margin-bottom: 0.65em;
+    line-height: 1.2;
+  }
+
+  &__text {
+    font-size: 1.65em;
+    max-width: 715px;
+  }
+}

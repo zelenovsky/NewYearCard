@@ -1,0 +1,83 @@
+.achievements {
+  font-family: "Gotham Rounded Bold";
+  color: #858e97;
+  font-size: 16px;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 9px;
+  }
+
+  &__title {
+    font-family: "Gotham Rounded Bold";
+    color: #222;
+    font-size: 3.7em;
+    margin-bottom: 0;
+    margin-top: 4em;
+    text-align: center;
+  }
+
+  &__achievement {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10em;
+
+    &:nth-child(2n - 1) {
+      flex-direction: row-reverse;
+    }
+
+    &:nth-child(2n - 1) .achievements__image {
+      text-align: center;
+    }
+
+    &:nth-child(2n) .achievements__image {
+      padding-right: 7em;
+
+      @media screen and (max-width: 500px) {
+        padding-right: 4em;
+      }
+    }
+
+    &:nth-child(5) .achievements__content {
+      max-width: 300px
+    }
+
+    &:nth-child(6) .achievements__content {
+      max-width: none;
+    }
+
+    > * {
+      flex: 1 1 50%;
+    }
+  }
+
+  &__content {
+    max-width: 380px;
+  }
+
+  &__image {
+    text-align: right;
+    max-width: 50%;
+  }
+
+  &__number {
+    font-family: "Gotham Rounded Book";
+    font-size: 10.7em;
+    color: #222;
+
+    @media screen and (max-width: 500px) {
+      font-size: 8.7em;
+    }
+  }
+
+  &__description {
+    font-size: 2.8em;
+  }
+}

@@ -1,0 +1,53 @@
+.subscribe form {
+  position: relative;
+  margin-top: 1em;
+}
+
+.subscribe input[type="text"] {
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+  width: 100%;
+  padding: 10px 50px 10px 20px;
+  color: #858e97;
+  outline: none;
+  font-family: "Open Sans", $f-sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  transition: box-shadow 0.3s ease;
+
+  &:focus {
+    box-shadow: 0px 0px 10px 3px #0f70e7;
+  }
+
+  &:-moz-placeholder {
+    color: #858e97;
+  }
+
+  &::-moz-placeholder {
+    color: #858e97;
+  }
+
+  &:-ms-input-placeholder {
+    color: #858e97;
+  }
+
+  &::-webkit-input-placeholder {
+    color: #858e97;
+  }
+}
+
+.subscribe input[type="submit"] {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  background-color: transparent;
+  background-image: url("../img/footer-subscribe-arrow.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  height: 100%;
+  width: 45px;
+  outline: none;
+}
