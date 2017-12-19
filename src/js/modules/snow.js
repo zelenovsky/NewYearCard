@@ -37,7 +37,7 @@ export default function snow() {
 
     for (var i = this.aFlakes.length; i < guiControls.density; i++) {
       this.aFlakes.push(new Flake(i));
-    };
+    }
 
   }
 
@@ -54,8 +54,8 @@ export default function snow() {
 
   Snow.prototype.getDist = function (flake) {
 
-    tx = this.mouse.x - flake.x;
-    ty = this.mouse.y - flake.y;
+    const tx = this.mouse.x - flake.x;
+    const ty = this.mouse.y - flake.y;
     return Math.sqrt(tx * tx + ty * ty);
 
   }
@@ -83,7 +83,7 @@ export default function snow() {
 
       this.aFlakes[i].getWind(this.getDist(this.aFlakes[i]), this.mouse);
 
-    };
+    }
 
   }
 
@@ -100,7 +100,7 @@ export default function snow() {
 
       this.aFlakes[i].update();
 
-    };
+    }
 
   }
 
@@ -112,7 +112,7 @@ export default function snow() {
 
       this.aFlakes[i].draw(this.ctx);
 
-    };
+    }
 
   }
 
@@ -257,8 +257,8 @@ export default function snow() {
 
 
 
-  rand = function (min, max) { return Math.random() * (max - min) + min; };
-  onresize = function () { oSnow.canvas.width = window.innerWidth; oSnow.canvas.height = window.innerHeight; };
+  const rand = function (min, max) { return Math.random() * (max - min) + min; };
+  const onresize = function () { oSnow.canvas.width = window.innerWidth; oSnow.canvas.height = window.innerHeight; };
 
 
 
@@ -280,7 +280,7 @@ export default function snow() {
 
 
   var oSnow;
-  init = function () {
+  const init = function () {
 
     oSnow = new Snow();
     oSnow.start();

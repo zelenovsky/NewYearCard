@@ -1,12 +1,80 @@
 .header {
+  position: relative;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  height: 100vh;
-  background: #36a5ff;
+  background-color: #36a5ff;
+  background-image: linear-gradient(to top, #3262C1, #63AAFF);
+  color: $c-white;
+  font-size: 16px;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 8px;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    z-index: 2;
+  }
+
+  &__name {
+    font-family: "Blacktear Script";
+    position: relative;
+    text-align: center;
+    margin-top: 12em;
+
+    .name {
+      font-size: 8.1em;
+    }
+  }
+  
+  &__name h1 {
+    position: relative;
+    font-family: "Blacktear Script";
+    font-size: 8.1em;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      width: 171px;
+      height: 77px;
+      background-image: url("../img/berries.png");
+      background-position: 50%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__name span,
+  &__name .comma {
+    font-family: "Sweet Mia";
+  }
+
+  @import "../components/share";
+  @import "../components/arrow-down";
 }
 
 canvas {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1;
+  height: 100%;
+  width: 100%;
 }

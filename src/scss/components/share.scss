@@ -1,0 +1,22 @@
+.share {
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  margin-right: 5em;
+
+  img {
+    filter: none;
+    transition: filter 0.3s ease;
+  }
+
+  &:hover img {
+    filter: drop-shadow(0 0 8px $c-white);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
