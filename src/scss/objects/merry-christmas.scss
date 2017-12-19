@@ -28,9 +28,15 @@
     font-family: "Blacktear Script";
     font-size: 6.8em;
     text-align: center;
+    opacity: 0;
+    transition: opacity 2s ease;
   }
 
   .title span {
     font-family: "Sweet Mia";
   }
+}
+
+.merry-christmas.show .title {
+  opacity: 1;
 }

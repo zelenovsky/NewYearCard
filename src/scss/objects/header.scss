@@ -35,6 +35,8 @@
     position: relative;
     text-align: center;
     margin-top: 12em;
+    opacity: 0;
+    transition: opacity 1s ease;
 
     .name {
       font-size: 8.1em;
@@ -77,4 +79,11 @@ canvas {
   z-index: 1;
   height: 100%;
   width: 100%;
+}
+
+.header.show {
+
+  .header__name {
+    opacity: 1;
+  }
 }
