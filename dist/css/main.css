@@ -4,6 +4,12 @@
 }
 
 @font-face {
+  font-family: "Gotham Rounded Medium";
+  src: url(../assets/gotham-rounded-medium.woff2) format("woff2"),
+       url(../assets/gotham-rounded-medium.woff) format("woff");
+}
+
+@font-face {
   font-family: "Gotham Rounded Bold";
   src: url(../assets/gotham-rounded-bold.woff) format("woff");
 }
@@ -12,7 +18,7 @@
   font-family: "Blacktear Script";
   src: url(../assets/blacktear.woff2) format("woff2"),
        url(../assets/blacktear.woff) format("woff"),
-       url(../assets/blacktear.ttf) format("ttf");
+       url(../assets/Blacktear.ttf) format("ttf");
 }
 
 @font-face {
@@ -554,7 +560,7 @@ h4,
 h5,
 h6 {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 700; }
+  font-weight: 400; }
 
 p:last-child {
   margin-bottom: 0; }
@@ -566,16 +572,20 @@ p:last-child {
   width: 100%;
   height: 100vh;
   display: flex;
-  z-index: 10;
+  z-index: 1;
   background-color: #36a5ff;
-  background-image: linear-gradient(to top, #3262C1, #63AAFF); }
+  background-image: linear-gradient(to top, #3262C1, #63AAFF);
+  transition: visibility 2s ease;
+  visibility: hidden; }
   .preloader img {
     margin: auto;
     opacity: 0;
     transition: opacity 2s ease; }
 
-.preloader.show img {
-  opacity: 1; }
+.preloader.show {
+  visibility: visible; }
+  .preloader.show img {
+    opacity: 1; }
 
 .start-form {
   font-size: 16px;
@@ -589,10 +599,12 @@ p:last-child {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 3;
+  z-index: 1;
   color: #fff;
   background-color: #36a5ff;
-  background-image: linear-gradient(to top, #3262C1, #63AAFF); }
+  background-image: linear-gradient(to top, #3262C1, #63AAFF);
+  transition: visibility 2s ease;
+  visibility: hidden; }
   @media screen and (max-width: 1200px) {
     .start-form {
       font-size: 15px; } }
@@ -608,39 +620,53 @@ p:last-child {
     font-size: 12.5em;
     text-align: center;
     margin: 0;
-    transform: translateY(-55vh);
+    transform: translateY(5vh);
     opacity: 0;
-    transition: all 2s ease; }
+    transition: all 0.7s ease 0.3s; }
   .start-form .title span {
     font-family: "Sweet Mia"; }
   .start-form .text {
     font-size: 2.15em;
-    transform: translateY(-65vh);
+    transform: translateY(5vh);
     opacity: 0;
-    transition: all 1s ease; }
+    transition: all 0.7s ease 0.6s; }
   .start-form form {
     margin-top: 4em;
     width: 33em;
     display: flex;
     align-items: flex-end;
-    transform: translateY(40vh);
-    opacity: 0;
-    transition: all 1s ease; }
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.7s ease; }
     @media screen and (max-width: 500px) {
       .start-form form {
         width: 29em; } }
-  .start-form form input[type="text"] {
+  .start-form form .input-wrap {
     flex: 1;
+    margin-right: 0.5em;
+    position: relative; }
+    .start-form form .input-wrap::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.7);
+      transition: width 2s linear 1.2s, background-color 0.7s ease 3.2s; }
+  .start-form form input[type="text"] {
+    width: 100%;
     font-size: 1.55em;
     font-family: "Gotham Rounded Book";
     background-color: transparent;
     color: #fff;
     padding: 10px 0;
-    margin-right: 0.5em;
     border: none;
     border-bottom: 2px solid rgba(255, 255, 255, 0.7);
-    transition: border-color 0.3s ease;
-    outline: none; }
+    transition: border-color 0.3s ease, opacity 0.7s ease 3.2s;
+    outline: none;
+    opacity: 0; }
     .start-form form input[type="text"]:focus {
       border-bottom: 2px solid white; }
       .start-form form input[type="text"]:focus:-moz-placeholder {
@@ -674,17 +700,37 @@ p:last-child {
     height: 3.15em;
     line-height: 3.15em;
     box-shadow: 0 0 0 0 #fff;
-    transition: all 0.3s ease;
+    opacity: 0;
+    transition: all 0.7s ease 3.5s;
     outline: none; }
     .start-form form input[type="submit"]:hover {
       box-shadow: 0 0 10px 0 #fff;
       color: #00b4ff; }
 
-.start-form.show .title,
-.start-form.show .text,
-.start-form.show form {
-  opacity: 1 !important;
-  transform: translateY(0) !important; }
+.start-form.show {
+  visibility: visible; }
+  .start-form.show .title,
+  .start-form.show .text,
+  .start-form.show form input {
+    opacity: 1 !important;
+    transform: translate(0) !important; }
+  .start-form.show form .input-wrap::after {
+    width: 100% !important;
+    background-color: rgba(255, 255, 255, 0); }
+
+.start-form.hide {
+  visibility: hidden; }
+  .start-form.hide .title,
+  .start-form.hide .text,
+  .start-form.hide form {
+    opacity: 0 !important;
+    transform: translateY(-30vh) !important; }
+  .start-form.hide .title {
+    transition: all 0.8s cubic-bezier(0.3, -0.4, 0.76, 0.79) 0.3s; }
+  .start-form.hide .text {
+    transition: all 0.8s cubic-bezier(0.3, -0.4, 0.76, 0.79) 0.6s; }
+  .start-form.hide form {
+    transition: all 0.5s cubic-bezier(0.3, -0.4, 0.76, 0.79) 0.9s; }
 
 .merry-christmas {
   font-size: 16px;
@@ -694,10 +740,12 @@ p:last-child {
   width: 100%;
   height: 100vh;
   display: flex;
-  z-index: 3;
+  z-index: 1;
   color: #fff;
   background-color: #36a5ff;
-  background-image: linear-gradient(to top, #3262C1, #63AAFF); }
+  background-image: linear-gradient(to top, #3262C1, #63AAFF);
+  transition: visibility 2s ease;
+  visibility: hidden; }
   @media screen and (max-width: 1200px) {
     .merry-christmas {
       font-size: 15px; } }
@@ -717,18 +765,24 @@ p:last-child {
   .merry-christmas .title span {
     font-family: "Sweet Mia"; }
 
-.merry-christmas.show .title {
-  opacity: 1; }
+.merry-christmas.show {
+  visibility: visible; }
+  .merry-christmas.show .title {
+    opacity: 1; }
 
 .header {
   position: relative;
+  z-index: 1;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #36a5ff;
   background-image: linear-gradient(to top, #3262C1, #63AAFF);
   color: #fff;
-  font-size: 16px; }
+  font-size: 16px;
+  overflow: hidden;
+  transition: visibility 2s ease;
+  visibility: hidden; }
   @media screen and (max-width: 1200px) {
     .header {
       font-size: 15px; } }
@@ -751,15 +805,18 @@ p:last-child {
     position: relative;
     text-align: center;
     margin-top: 12em;
-    opacity: 0;
-    transition: opacity 1s ease; }
+    pointer-events: none; }
     .header__name .name {
-      font-size: 8.1em; }
-  .header__name h1 {
+      font-size: 8.1em;
+      opacity: 0;
+      transition: opacity 1.5s ease 0.3s; }
+  .header__name .title {
     position: relative;
     font-family: "Blacktear Script";
-    font-size: 8.1em; }
-    .header__name h1::after {
+    font-size: 8.1em;
+    opacity: 0;
+    transition: opacity 1.5s ease 1.3s; }
+    .header__name .title::after {
       content: "";
       display: block;
       position: absolute;
@@ -775,19 +832,55 @@ p:last-child {
   .header__name .comma {
     font-family: "Sweet Mia"; }
   .header .share {
+    position: relative;
     text-align: center;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1.5s ease 2.3s;
+    z-index: 2; }
   .header .link {
     margin-right: 5em; }
-    .header .link img {
-      filter: none;
-      transition: filter 0.3s ease; }
-    .header .link:hover img {
-      filter: drop-shadow(0 0 8px #fff); }
+    .header .link .twitter-icon {
+      background-image: url(../assets/twitter.png); }
+      .header .link .twitter-icon::after {
+        background-image: url(../assets/twitter-hover.png); }
+    .header .link .facebook-icon {
+      background-image: url(../assets/facebook.png); }
+      .header .link .facebook-icon::after {
+        background-image: url(../assets/facebook-hover.png); }
+    .header .link .linked-in-icon {
+      background-image: url(../assets/linked-in.png); }
+      .header .link .linked-in-icon::after {
+        background-image: url(../assets/linked-in-hover.png); }
     .header .link:last-child {
       margin-right: 0; }
+  .header .link span {
+    display: block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: 50%; }
+    .header .link span::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 52px;
+      height: 52px;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease; }
+    .header .link span:hover::after {
+      opacity: 1; }
   .header .arrow-down {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 1.5s ease 3.3s;
     animation: arrow;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -804,17 +897,24 @@ p:last-child {
 canvas {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
   z-index: 1;
-  height: 100%;
-  width: 100%; }
+  height: 100vh;
+  min-width: 100vw;
+  transform: translateX(-50%); }
 
-.header.show .header__name {
-  opacity: 1; }
+.header.show {
+  visibility: visible; }
+  .header.show .header__name .name,
+  .header.show .header__name .title,
+  .header.show .share,
+  .header.show .arrow-down {
+    opacity: 1; }
 
 .hello {
   font-size: 16px;
-  color: #858e97; }
+  color: #858e97;
+  text-align: center; }
   @media screen and (max-width: 1200px) {
     .hello {
       font-size: 15px; } }
@@ -828,13 +928,14 @@ canvas {
     padding: 11em 0 3em; }
   .hello__title {
     font-family: "Gotham Rounded Bold";
-    color: #0f70e7;
-    font-size: 5em;
+    color: #222;
+    font-size: 4em;
     margin-bottom: 0.65em;
-    line-height: 1.2; }
+    line-height: 1.1; }
   .hello__text {
-    font-size: 1.65em;
-    max-width: 715px; }
+    font-size: 1.35em;
+    max-width: 700px;
+    margin: 0 auto; }
 
 .map {
   color: #858e97;
@@ -848,91 +949,121 @@ canvas {
   @media screen and (max-width: 500px) {
     .map {
       font-size: 10px; } }
+  .map__image {
+    position: relative; }
   .map__image img {
-    width: 100%; }
+    width: 100%;
+    position: relative;
+    z-index: 1; }
+  .map__image img.conferences-image {
+    position: absolute;
+    left: 0;
+    top: 0; }
   .map__done {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    font-size: 1.55em;
-    margin-top: 2em; }
-    @media screen and (max-width: 768px) {
-      .map__done {
-        flex-direction: column;
-        align-items: flex-end; } }
-  .map__projects, .map__conferences {
-    position: relative; }
-    @media screen and (max-width: 768px) {
-      .map__projects, .map__conferences {
-        margin-top: 1.5em; } }
-  .map__projects::before, .map__conferences::before {
-    content: "";
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: 5em; }
+  .map__wrap {
+    position: relative;
+    display: flex;
+    padding-bottom: 8px; }
+    .map__wrap::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #eee; }
+  .map__wrap .handle {
     display: block;
     position: absolute;
-    top: 50%;
-    left: -2.5em;
-    transform: translateY(-50%);
-    width: 1.9em;
-    height: 1.9em;
-    border-radius: 50%; }
-  .map__projects::before {
-    background-color: #0f70e7; }
-  .map__conferences::before {
-    background-color: #222; }
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: #222;
+    transition: all 0.3s ease; }
+  .map__projects {
+    margin-right: 50px; }
+  .map__done button {
+    font-family: "Open Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    color: #222;
+    border: none;
+    outline: none;
+    letter-spacing: 2px;
+    padding: 0;
+    background-color: #fff; }
+
+img.active {
+  z-index: 10; }
 
 .achievements {
-  font-family: "Gotham Rounded Bold";
   color: #858e97;
-  font-size: 16px; }
+  font-size: 16px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap; }
   @media screen and (max-width: 1200px) {
     .achievements {
       font-size: 14px; } }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 900px) {
     .achievements {
       font-size: 12px; } }
-  @media screen and (max-width: 500px) {
-    .achievements {
-      font-size: 9px; } }
   .achievements__title {
     font-family: "Gotham Rounded Bold";
     color: #222;
     font-size: 3.7em;
     margin-bottom: 0;
     margin-top: 4em;
-    text-align: center; }
+    text-align: center;
+    width: 100%; }
   .achievements__achievement {
     display: flex;
-    justify-content: flex-start;
-    margin-top: 10em; }
-    .achievements__achievement:nth-child(2n - 1) {
-      flex-direction: row-reverse; }
-    .achievements__achievement:nth-child(2n - 1) .achievements__image {
-      text-align: center; }
-    .achievements__achievement:nth-child(2n) .achievements__image {
-      padding-right: 7em; }
-      @media screen and (max-width: 500px) {
-        .achievements__achievement:nth-child(2n) .achievements__image {
-          padding-right: 4em; } }
-    .achievements__achievement:nth-child(5) .achievements__content {
-      max-width: 300px; }
-    .achievements__achievement:nth-child(6) .achievements__content {
-      max-width: none; }
-    .achievements__achievement > * {
-      flex: 1 1 50%; }
-  .achievements__content {
-    max-width: 380px; }
+    margin-top: 10em;
+    margin-right: 2.8em;
+    width: 45%; }
+    @media screen and (max-width: 550px) {
+      .achievements__achievement {
+        width: 100%; } }
+    .achievements__achievement:nth-child(2n + 1) {
+      margin-right: 0; }
   .achievements__image {
-    text-align: right;
-    max-width: 50%; }
+    min-width: 12em;
+    width: 12em;
+    display: flex;
+    justify-content: center; }
+    @media screen and (max-width: 900px) {
+      .achievements__image {
+        min-width: auto;
+        width: auto;
+        max-width: 12em; } }
+    @media screen and (max-width: 550px) {
+      .achievements__image {
+        min-width: 45%;
+        width: 45%; } }
+    .achievements__image img {
+      margin-top: auto; }
+  .achievements__content {
+    padding-left: 1em;
+    max-width: 260px; }
+    @media screen and (max-width: 550px) {
+      .achievements__content {
+        padding-left: 2em; } }
   .achievements__number {
-    font-family: "Gotham Rounded Book";
-    font-size: 10.7em;
-    color: #222; }
-    @media screen and (max-width: 500px) {
+    font-family: "Gotham Rounded Medium";
+    font-size: 6.3em;
+    color: #222;
+    white-space: nowrap; }
+    @media screen and (max-width: 768px) {
       .achievements__number {
-        font-size: 8.7em; } }
+        font-size: 4.3em; } }
   .achievements__description {
-    font-size: 2.8em; }
+    font-size: 1.55em; }
 
 .adci {
   display: flex;

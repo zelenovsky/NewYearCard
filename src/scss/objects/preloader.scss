@@ -5,9 +5,11 @@
   width: 100%;
   height: 100vh;
   display: flex;
-  z-index: 10;
+  z-index: 1;
   background-color: #36a5ff;
   background-image: linear-gradient(to top, #3262C1, #63AAFF);
+  transition: visibility 2s ease;
+  visibility: hidden;
 
   img {
     margin: auto;
@@ -16,6 +18,10 @@
   }
 }
 
-.preloader.show img {
-  opacity: 1;
+.preloader.show {
+  visibility: visible;
+
+  img {
+    opacity: 1;
+  }
 }

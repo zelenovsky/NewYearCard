@@ -14,50 +14,74 @@
     font-size: 10px;
   }
 
+  &__image {
+    position: relative;
+  }
+
   &__image img {
     width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__image img.conferences-image {
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 
   &__done {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    font-size: 1.55em;
+    justify-content: center;
     margin-top: 2em;
-
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      align-items: flex-end;
-    }
+    margin-bottom: 5em;
   }
 
-  &__projects,
-  &__conferences {
+  &__wrap {
     position: relative;
+    display: flex;
+    padding-bottom: 8px;
 
-    @media screen and (max-width: 768px) {
-      margin-top: 1.5em;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #eee;
     }
   }
 
-  &__projects::before,
-  &__conferences::before {
-    content: "";
+  &__wrap .handle {
     display: block;
     position: absolute;
-    top: 50%;
-    left: -2.5em;
-    transform: translateY(-50%);
-    width: 1.9em;
-    height: 1.9em;
-    border-radius: 50%;
-  }
-
-  &__projects::before {
-    background-color: #0f70e7;
-  }
-
-  &__conferences::before {
+    bottom: 0;
+    left: 0;
+    height: 2px;
     background-color: #222;
+    transition: all 0.3s ease;
   }
+
+  &__projects {
+    margin-right: 50px;
+  }
+
+  &__done button {
+    font-family: "Open Sans", $f-sans-serif;
+    font-weight: 700;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    color: #222;
+    border: none;
+    outline: none;
+    letter-spacing: 2px;
+    padding: 0;
+    background-color: $c-white;
+  }
+}
+
+img.active {
+  z-index: 10;
 }

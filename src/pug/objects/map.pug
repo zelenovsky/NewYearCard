@@ -1,6 +1,11 @@
 section.map
-  .map__image
-    img(src="../img/map.png")
   .map__done
-    .map__projects Projects we’ve done
-    .map__conferences Conferences we’ve been to
+    .map__wrap
+      .map__projects
+        button(@click.prevent="switchMap") projects
+      .map__conferences
+        button(@click.prevent="switchMap") conferences
+      .handle
+  .map__image
+    img(class="image projects-image" src="../img/map-projects.jpg")
+    img(class="image conferences-image" src="../img/map-conferences.jpg")

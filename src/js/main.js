@@ -1,49 +1,74 @@
 import snow from './modules/snow';
+// import snowV2 from './modules/snowV2';
 
-snow();
+const app = new Vue({
+  el: '#app',
+  data: {
+    name: '',
+    position: 1
+  },
+  methods: {
+    removeFixed() {
+      const startForm = document.querySelector('.start-form');
+      startForm.classList.add('hide');
+      setTimeout(() => {
+        this.position++;
+        document.body.classList.remove('fixed');
+      }, 2000);
+    },
+    scroll() {
+      const header = document.querySelector('.header');
+      const headerHeight = header.offsetHeight;
 
-window.onload = () => {
-  document.body.classList.add('fixed');
+      window.scroll({
+        top: headerHeight,
+        left: 0,
+        behavior: 'smooth'
+      });
+    },
+    switchMap(e) {
+      const handle = document.querySelector('.handle');
+      handle.style.width = `${e.target.offsetWidth}px`;
+      handle.style.left = `${e.target.offsetLeft}px`;
 
-  const preloader = document.querySelector('.preloader');
-  const merry = document.querySelector('.merry-christmas');
-  const startForm = document.querySelector('.start-form');
-  const header = document.querySelector('.header');
-  preloader.classList.add('show');
-
-  setTimeout(() => {
-    preloader.classList.remove('show');
-    preloader.classList.add('delete');
-    merry.classList.add('show');
-
+      const images = document.querySelectorAll('.image');
+      const projectsImage = document.querySelector('.projects-image');
+      const conferencesImage = document.querySelector('.conferences-image');
+      for (let i = 0; i < images.length; i++) {
+        images[i].classList.remove('active');
+      }
+      if (e.target.innerHTML === 'projects') {
+        projectsImage.classList.add('active');
+      } else if (e.target.innerHTML === 'conferences') {
+        conferencesImage.classList.add('active');
+      }
+    }
+  },
+  mounted() {
+    snow();
+    // snowV2();
+    document.body.classList.add('fixed');
+    const handle = document.querySelector('.handle');
+    const projects = document.querySelector('.map__projects');
+    const projectsImage = document.querySelector('.projects-image');
+    projectsImage.classList.add('active');
+    handle.style.width = `${projects.offsetWidth}px`;
     setTimeout(() => {
-      merry.classList.remove('show');
+      const preloader = document.querySelector('.preloader');
+      preloader.classList.remove('show');
 
       setTimeout(() => {
-        merry.classList.add('delete');
-        startForm.classList.add('show');
-      }, 1800);
-    }, 3000);
-  }, 3000);
+        this.position++;
 
-  const pushUserBtn = document.querySelector('.push-user');
+        setTimeout(() => {
+          const merry = document.querySelector('.merry-christmas');
+          merry.classList.remove('show');
 
-  pushUserBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const userNameInput = document.querySelector('.user-name');
-    const userName = document.querySelector('.name');
-    const comma = document.createElement('span');
-    comma.className = 'comma';
-    comma.innerHTML = ',';
-
-    userName.innerHTML = userNameInput.value;
-    userName.appendChild(comma);
-
-    startForm.classList.remove('show');
-    setTimeout(() => {
-      startForm.classList.add('delete');
-      document.body.classList.remove('fixed');
-      header.classList.add('show');
+          setTimeout(() => {
+            this.position++;
+          }, 2000);
+        }, 2000);
+      }, 2000);
     }, 2000);
-  }, false);
-};
+  }
+})

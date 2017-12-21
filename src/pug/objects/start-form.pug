@@ -1,7 +1,8 @@
-.start-form
+div(:class="['start-form', {'show': position === 3}]")
   h2.title Hello
     span !
   div.text Are you ready to celebrate?
   form
-    input.user-name(type="text" placeholder="What's your name?")
-    input.push-user(type="submit" value="let it snow!")
+    .input-wrap
+      input.user-name(type="text" placeholder="What's your name?" v-model="name")
+    input.push-user(type="submit" value="let it snow!" @click.prevent="removeFixed")

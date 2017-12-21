@@ -1,18 +1,16 @@
 .achievements {
-  font-family: "Gotham Rounded Bold";
   color: #858e97;
   font-size: 16px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 
   @media screen and (max-width: 1200px) {
     font-size: 14px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 900px) {
     font-size: 12px;
-  }
-
-  @media screen and (max-width: 500px) {
-    font-size: 9px;
   }
 
   &__title {
@@ -22,62 +20,67 @@
     margin-bottom: 0;
     margin-top: 4em;
     text-align: center;
+    width: 100%;
   }
 
   &__achievement {
     display: flex;
-    justify-content: flex-start;
     margin-top: 10em;
+    margin-right: 2.8em;
+    width: 45%;
 
-    &:nth-child(2n - 1) {
-      flex-direction: row-reverse;
+    @media screen and (max-width: 550px) {
+      width: 100%;
     }
 
-    &:nth-child(2n - 1) .achievements__image {
-      text-align: center;
+    &:nth-child(2n + 1) {
+      margin-right: 0;
+    }
+  }
+
+  &__image {
+    min-width: 12em;
+    width: 12em;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width: 900px) {
+      min-width: auto;
+      width: auto;
+      max-width: 12em;
     }
 
-    &:nth-child(2n) .achievements__image {
-      padding-right: 7em;
-
-      @media screen and (max-width: 500px) {
-        padding-right: 4em;
-      }
+    @media screen and (max-width: 550px) {
+      min-width: 45%;
+      width: 45%;
     }
 
-    &:nth-child(5) .achievements__content {
-      max-width: 300px
-    }
-
-    &:nth-child(6) .achievements__content {
-      max-width: none;
-    }
-
-    > * {
-      flex: 1 1 50%;
+    img {
+      margin-top: auto;
     }
   }
 
   &__content {
-    max-width: 380px;
-  }
+    padding-left: 1em;
+    max-width: 260px;
 
-  &__image {
-    text-align: right;
-    max-width: 50%;
+    @media screen and (max-width: 550px) {
+      padding-left: 2em;
+    }
   }
 
   &__number {
-    font-family: "Gotham Rounded Book";
-    font-size: 10.7em;
+    font-family: "Gotham Rounded Medium";
+    font-size: 6.3em;
     color: #222;
+    white-space: nowrap;
 
-    @media screen and (max-width: 500px) {
-      font-size: 8.7em;
+    @media screen and (max-width: 768px) {
+      font-size: 4.3em;
     }
   }
 
   &__description {
-    font-size: 2.8em;
+    font-size: 1.55em;
   }
 }

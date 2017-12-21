@@ -1,19 +1,20 @@
-header.header
+header(:class="['header', {'show': position === 4}]")
   .container
-    canvas#snow
     .header__content
+      canvas#canvas
       .header__name
-        .name
+        .name {{ name === '' ? 'Dear Friend' : name }}
+          span ,
         h1.title Merry Christmas
           span !
       .share
         a.link(href="#")
-          img(src="../img/twitter.png" alt="twitter")
+          span.twitter-icon
         a.link(href="#")
-          img(src="../img/facebook.png" alt="facebook")
+          span.facebook-icon
         a.link(href="#")
-          img(src="../img/linked-in.png" alt="linkedIn")
+          span.linked-in-icon
       .arrow-down
-        a(href="#")
+        a(href="#" @click.prevent='scroll')
           img(src="../img/arrow-down.png" alt="arrow-down")
 

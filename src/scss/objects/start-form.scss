@@ -10,10 +10,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 3;
+  z-index: 1;
   color: $c-white;
   background-color: #36a5ff;
   background-image: linear-gradient(to top, #3262C1, #63AAFF);
+  transition: visibility 2s ease;
+  visibility: hidden;
 
   @media screen and (max-width: 1200px) {
     font-size: 15px;
@@ -33,9 +35,9 @@
     font-size: 12.5em;
     text-align: center;
     margin: 0;
-    transform: translateY(-55vh);
+    transform: translateY(5vh);
     opacity: 0;
-    transition: all 2s ease;
+    transition: all 0.7s ease 0.3s;
   }
 
   .title span {
@@ -44,9 +46,9 @@
 
   .text {
     font-size: 2.15em;
-    transform: translateY(-65vh);
+    transform: translateY(5vh);
     opacity: 0;
-    transition: all 1s ease;
+    transition: all 0.7s ease 0.6s;
   }
 
   form {
@@ -54,27 +56,45 @@
     width: 33em;
     display: flex;
     align-items: flex-end;
-    transform: translateY(40vh);
-    opacity: 0;
-    transition: all 1s ease;
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.7s ease;
 
     @media screen and (max-width: 500px) {
       width: 29em;
     }
   }
 
-  form input[type="text"] {
+  form .input-wrap {
     flex: 1;
+    margin-right: 0.5em;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.7);
+      transition: width 2s linear 1.2s, background-color 0.7s ease 3.2s;
+    }
+  }
+
+  form input[type="text"] {
+    width: 100%;
     font-size: 1.55em;
     font-family: "Gotham Rounded Book";
     background-color: transparent;
     color: $c-white;
     padding: 10px 0;
-    margin-right: 0.5em;
     border: none;
     border-bottom: 2px solid rgba(255, 255, 255, 0.7);
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, opacity 0.7s ease 3.2s;
     outline: none;
+    opacity: 0;
 
     &:focus {
       border-bottom: 2px solid rgba(255, 255, 255, 1);
@@ -128,7 +148,8 @@
     height: 3.15em;
     line-height: 3.15em;
     box-shadow: 0 0 0 0 $c-white;
-    transition: all 0.3s ease;
+    opacity: 0;
+    transition: all 0.7s ease 3.5s;
     outline: none;
 
     &:hover {
@@ -139,11 +160,40 @@
 }
 
 .start-form.show {
+  visibility: visible;
+
+  .title,
+  .text,
+  form input {
+    opacity: 1 !important;
+    transform: translate(0) !important;
+  }
+
+  form .input-wrap::after {
+    width: 100% !important;
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+.start-form.hide {
+  visibility: hidden;
 
   .title,
   .text,
   form {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+    opacity: 0 !important;
+    transform: translateY(-30vh) !important;
+  }
+
+  .title {
+    transition: all 0.8s cubic-bezier(.3, -0.4, .76, .79) 0.3s;
+  }
+
+  .text {
+    transition: all 0.8s cubic-bezier(.3, -0.4, .76, .79) 0.6s;
+  }
+
+  form {
+    transition: all 0.5s cubic-bezier(.3, -0.4, .76, .79) 0.9s;
   }
 }

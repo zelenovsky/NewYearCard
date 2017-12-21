@@ -1,4 +1,8 @@
 .arrow-down {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 1.5s ease 3.3s;
   animation: arrow;
   animation-duration: 2s;
   animation-iteration-count: infinite;

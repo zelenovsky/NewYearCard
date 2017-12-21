@@ -2,17 +2,17 @@ doctype html
 html(lang="en")
   head
     block page-title
-      title Title
+      title Christmas
     include ../base/head
 
   block vars
     - var bodyClasses = '';
 
   body(class=bodyClasses)
-    include ../objects/preloader
-    include ../objects/start-form
-    include ../objects/merry-christmas
-    .page
+    .page#app
+      include ../objects/preloader
+      include ../objects/merry-christmas
+      include ../objects/start-form
       include ../objects/header
       .content
         block page-content
