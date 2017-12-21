@@ -31,6 +31,7 @@
 
     @media screen and (max-width: 550px) {
       width: 100%;
+      margin-top: 7em;
     }
 
     &:nth-child(2n + 1) {
@@ -39,16 +40,10 @@
   }
 
   &__image {
-    min-width: 12em;
-    width: 12em;
+    min-width: 33%;
+    width: 33%;
     display: flex;
     justify-content: center;
-
-    @media screen and (max-width: 900px) {
-      min-width: auto;
-      width: auto;
-      max-width: 12em;
-    }
 
     @media screen and (max-width: 550px) {
       min-width: 45%;
@@ -63,9 +58,11 @@
   &__content {
     padding-left: 1em;
     max-width: 260px;
+    width: 50%;
 
     @media screen and (max-width: 550px) {
       padding-left: 2em;
+      width: auto;
     }
   }
 

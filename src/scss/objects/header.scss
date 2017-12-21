@@ -21,7 +21,7 @@
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 8px;
+    font-size: 7px;
   }
 
   &__content {
@@ -40,6 +40,10 @@
     text-align: center;
     margin-top: 12em;
     pointer-events: none;
+
+    @media screen and (max-width: 500px) {
+      margin-top: 5em;
+    }
 
     .name {
       font-size: 8.1em;
@@ -67,6 +71,10 @@
       background-image: url("../img/berries.png");
       background-position: 50%;
       background-repeat: no-repeat;
+
+      @media screen and (max-width: 500px) {
+        transform: translateX(-50%) scale(0.7);
+      }
     }
   }
 

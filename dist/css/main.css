@@ -654,7 +654,7 @@ p:last-child {
       width: 0;
       height: 2px;
       background-color: rgba(255, 255, 255, 0.7);
-      transition: width 2s linear 1.2s, background-color 0.7s ease 3.2s; }
+      transition: width 1s linear 1.2s, background-color 0.7s ease 2.2s; }
   .start-form form input[type="text"] {
     width: 100%;
     font-size: 1.55em;
@@ -664,7 +664,7 @@ p:last-child {
     padding: 10px 0;
     border: none;
     border-bottom: 2px solid rgba(255, 255, 255, 0.7);
-    transition: border-color 0.3s ease, opacity 0.7s ease 3.2s;
+    transition: border-color 0.3s ease, opacity 1s ease 2.2s;
     outline: none;
     opacity: 0; }
     .start-form form input[type="text"]:focus {
@@ -701,7 +701,7 @@ p:last-child {
     line-height: 3.15em;
     box-shadow: 0 0 0 0 #fff;
     opacity: 0;
-    transition: all 0.7s ease 3.5s;
+    transition: opacity 1s ease 2.5s, box-shadow 0.3s ease, color 0.3s ease;
     outline: none; }
     .start-form form input[type="submit"]:hover {
       box-shadow: 0 0 10px 0 #fff;
@@ -791,7 +791,7 @@ p:last-child {
       font-size: 14px; } }
   @media screen and (max-width: 500px) {
     .header {
-      font-size: 8px; } }
+      font-size: 7px; } }
   .header__content {
     position: relative;
     display: flex;
@@ -806,6 +806,9 @@ p:last-child {
     text-align: center;
     margin-top: 12em;
     pointer-events: none; }
+    @media screen and (max-width: 500px) {
+      .header__name {
+        margin-top: 5em; } }
     .header__name .name {
       font-size: 8.1em;
       opacity: 0;
@@ -828,6 +831,9 @@ p:last-child {
       background-image: url(../assets/berries.png);
       background-position: 50%;
       background-repeat: no-repeat; }
+      @media screen and (max-width: 500px) {
+        .header__name .title::after {
+          transform: translateX(-50%) scale(0.7); } }
   .header__name span,
   .header__name .comma {
     font-family: "Sweet Mia"; }
@@ -923,7 +929,7 @@ canvas {
       font-size: 14px; } }
   @media screen and (max-width: 500px) {
     .hello {
-      font-size: 10px; } }
+      font-size: 12px; } }
   .hello__content {
     padding: 11em 0 3em; }
   .hello__title {
@@ -934,7 +940,6 @@ canvas {
     line-height: 1.1; }
   .hello__text {
     font-size: 1.35em;
-    max-width: 700px;
     margin: 0 auto; }
 
 .map {
@@ -1029,19 +1034,15 @@ img.active {
     width: 45%; }
     @media screen and (max-width: 550px) {
       .achievements__achievement {
-        width: 100%; } }
+        width: 100%;
+        margin-top: 7em; } }
     .achievements__achievement:nth-child(2n + 1) {
       margin-right: 0; }
   .achievements__image {
-    min-width: 12em;
-    width: 12em;
+    min-width: 33%;
+    width: 33%;
     display: flex;
     justify-content: center; }
-    @media screen and (max-width: 900px) {
-      .achievements__image {
-        min-width: auto;
-        width: auto;
-        max-width: 12em; } }
     @media screen and (max-width: 550px) {
       .achievements__image {
         min-width: 45%;
@@ -1050,10 +1051,12 @@ img.active {
       margin-top: auto; }
   .achievements__content {
     padding-left: 1em;
-    max-width: 260px; }
+    max-width: 260px;
+    width: 50%; }
     @media screen and (max-width: 550px) {
       .achievements__content {
-        padding-left: 2em; } }
+        padding-left: 2em;
+        width: auto; } }
   .achievements__number {
     font-family: "Gotham Rounded Medium";
     font-size: 6.3em;
@@ -1128,7 +1131,7 @@ img.active {
   .footer .subscribe form {
     position: relative;
     margin-top: 1em; }
-  .footer .subscribe input[type="text"] {
+  .footer .subscribe input[type="email"] {
     border: none;
     border-radius: 20px;
     height: 40px;
@@ -1140,15 +1143,15 @@ img.active {
     font-weight: 700;
     font-size: 14px;
     transition: box-shadow 0.3s ease; }
-    .footer .subscribe input[type="text"]:focus {
+    .footer .subscribe input[type="email"]:focus {
       box-shadow: 0px 0px 10px 3px #0f70e7; }
-    .footer .subscribe input[type="text"]:-moz-placeholder {
+    .footer .subscribe input[type="email"]:-moz-placeholder {
       color: #858e97; }
-    .footer .subscribe input[type="text"]::-moz-placeholder {
+    .footer .subscribe input[type="email"]::-moz-placeholder {
       color: #858e97; }
-    .footer .subscribe input[type="text"]:-ms-input-placeholder {
+    .footer .subscribe input[type="email"]:-ms-input-placeholder {
       color: #858e97; }
-    .footer .subscribe input[type="text"]::-webkit-input-placeholder {
+    .footer .subscribe input[type="email"]::-webkit-input-placeholder {
       color: #858e97; }
   .footer .subscribe input[type="submit"] {
     position: absolute;

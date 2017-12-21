@@ -1,5 +1,4 @@
-import snow from './modules/snow';
-// import snowV2 from './modules/snowV2';
+import snowFlakes from './modules/snow';
 
 const app = new Vue({
   el: '#app',
@@ -9,12 +8,14 @@ const app = new Vue({
   },
   methods: {
     removeFixed() {
+      snowFlakes();
       const startForm = document.querySelector('.start-form');
       startForm.classList.add('hide');
       setTimeout(() => {
         this.position++;
         document.body.classList.remove('fixed');
       }, 2000);
+      const name = document.querySelector('.name').textContent.split(',')[0];
     },
     scroll() {
       const header = document.querySelector('.header');
@@ -45,8 +46,6 @@ const app = new Vue({
     }
   },
   mounted() {
-    snow();
-    // snowV2();
     document.body.classList.add('fixed');
     const handle = document.querySelector('.handle');
     const projects = document.querySelector('.map__projects');

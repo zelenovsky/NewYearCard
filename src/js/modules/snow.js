@@ -1,4 +1,4 @@
-export default function snow() {
+export default function snowFlakes() {
   (function () {
     var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame ||
       function (callback) {
@@ -11,7 +11,7 @@ export default function snow() {
   var flakes = [],
     canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d"),
-    flakeCount = 400,
+    flakeCount = 600,
     mX = -100,
     mY = -100
 
@@ -25,7 +25,7 @@ export default function snow() {
       var flake = flakes[i],
         x = mX,
         y = mY,
-        minDist = 300,
+        minDist = 100,
         x2 = flake.x,
         y2 = flake.y;
 
@@ -34,7 +34,7 @@ export default function snow() {
         dy = y2 - y;
 
       if (dist < minDist) {
-        var force = minDist / (dist * dist),
+        var force = minDist / dist,
           xcomp = (x - x2) / dist,
           ycomp = (y - y2) / dist,
           deltaV = force / 2;
@@ -68,7 +68,7 @@ export default function snow() {
       ctx.fill();
     }
     requestAnimationFrame(snow);
-  };
+  }
 
   function reset(flake) {
     flake.x = Math.floor(Math.random() * canvas.width);
@@ -102,7 +102,7 @@ export default function snow() {
     }
 
     snow();
-  };
+  }
 
   canvas.addEventListener("mousemove", function (e) {
     mX = e.clientX,

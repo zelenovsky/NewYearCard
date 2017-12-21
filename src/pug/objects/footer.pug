@@ -4,30 +4,34 @@ footer.footer
       .footer__company.footer__block
         ul
           li.title Company
-          each item in ["About Us", "Services", "Work", "Knowledge", "Blog", "Drupal Digest", "Events", "Contacts"]
+          each item in [{name: "About Us", link: "//www.adcisolutions.com/about-us"}, {name: "Work", link: "//www.adcisolutions.com/works"}, {name: "Knowledge", link: "//www.adcisolutions.com/knowledge"}, {name: "Blog", link: "//www.adcisolutions.com/blog"}, {name: "Drupal Digest", link: "//www.adcisolutions.com/subscribe"}, {name: "Events", link: "//www.adcisolutions.com/our-events"}, {name: "Contacts", link: "//www.adcisolutions.com/contact-us"}]
             li
-              a(href="#")= item
+              a(href= item.link target="_blank" title= item.name)= item.name
       .footer__learn-more.footer__block
         ul
           li.title Learn more
-          each item in ["Clutch", "Drupal.org", "Behance"]
+          each item in [{name: "Clutch", link: "//clutch.co/profile/adci-solutions"}, {name: "Drupal.org", link: "//www.drupal.org/adci-solutions"}, {name: "Behance", link: "//www.behance.net/adci_solutions"}]
             li
-              a(href="#")= item
+              a(href= item.link target="_blank" title= item.name)= item.name
       .footer__connect.footer__block
         ul
           li.title Connect
-          each item in ["LinkedIn", "Twitter", "Facebook", "Instagram"]
+          each item in [{name: "LinkedIn", link: "//www.linkedin.com/company/adci-solutions"}, {name: "Twitter", link: "//twitter.com/ADCISolutions"}, {name: "Facebook", link: "//www.facebook.com/adcisolutions/"}, {name: "Instagram", link: "//www.instagram.com/adcisolutions/"}]
             li
-              a(href="#")= item
+              a(href= item.link target="_blank" title= item.name)= item.name
       .footer__subscribe.footer__block
         .subscribe
           div.title Subscribe
           div Don't miss our monthly Drupal Digest
-          form
-            input(type="text" placeholder="Your name, please")
-            input(type="submit")
+          div(id="mc_embed_signup")
+            form(action="https://adcisolutions.us13.list-manage.com/subscribe/post?u=7a35dc84af868f5a5313e9f83&amp;id=4e6bc4a4ae" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate)
+              div(id="mc_embed_signup_scroll")
+                input(type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Your email, please" required)
+                div(style="position: absolute; left: -5000px;" aria-hidden="true")
+                  input(type="text" name="b_7a35dc84af868f5a5313e9f83_4e6bc4a4ae" tabindex="-1" value="")
+                div(class="clear")
+                  input(type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button")
         .talk-to-adci
           div.title Talk to ADCI Solutions
-          a(href="#") hello@adcisolutions.com
+          a(href="//hello@adcisolutions.com" target="_blank" title="hello@adcisolutions.com") hello@adcisolutions.com
         .copyright Copyright &copy; 2007-2017 ADCI Solutions
-
